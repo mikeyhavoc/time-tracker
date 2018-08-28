@@ -11,3 +11,20 @@ function get_project_list() {
     }
 
 }
+
+function add_project($title, $category) {
+    include 'connection.php';
+
+    $sql = 'INSERT INTO projects (title, category) VALUES (? , ?)';
+
+    try {
+        $results = $db->prepare($sql);
+        $results->bindParam(1, $title, PDO::PARAM_STR);
+        $results->bindParam(2, $category, PDO::PARAM_STR);
+        $results->execute();
+    } catch (Exception $e) {
+        echo 'Error '. $e->getMessage();
+        return false;
+    }
+
+}
