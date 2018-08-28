@@ -15,9 +15,10 @@ function get_project_list() {
 function get_task_list() {
     include 'connection.php';
 
-    $sql = 'SELECT t.task_id, t.title, t.date, t.time, p.title FROM tasks '
-            . ' JOIN tasks as t ON projects as p '
-            . ' p.projects_it = t.project_id';
+    $sql = 'SELECT t.task_id as task_id, t.title as title, t.date as dates,
+            t.time as time , p.title as projects FROM tasks as t 
+             JOIN projects as p ON  
+             p.projects_it = t.project_id';
 
     try {
 
