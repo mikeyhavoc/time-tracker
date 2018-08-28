@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             header('Location: project_list.php');
             exit;
         } else {
-            $error_message = 'Could not add Project.';
+            $error_message = 'Could not add project';
         }
     }
 }
